@@ -44,8 +44,6 @@ function Game() {
     setHistory([{ squares: Array(9).fill(null), lastMove: null }]);
     setCurrentMove(0);
     setIsAscending(true);
-    setPlayer1("");
-    setPlayer2("");
   }
 
   const moves = history.map((entry, move) => {
@@ -161,6 +159,8 @@ function Board({ xIsNext, squares, onPlay, player1, player2 }) {
         : player2
         ? player2
         : "Player 2";
+  } else if (squares.every((sq) => sq !== null)) {
+    status = "Draw";
   } else {
     status = xIsNext
       ? player1
@@ -202,7 +202,11 @@ function Board({ xIsNext, squares, onPlay, player1, player2 }) {
   return (
     <>
       <div className="status">
-        {!winner ? "Next player: " : "Winner: "}
+        {winner
+          ? "Winner: "
+          : status === "Draw"
+          ? "Result is: "
+          : "Next player: "}
         <span className="status-name">{status}</span>
       </div>
       {boardRows}
