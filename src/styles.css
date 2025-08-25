@@ -116,7 +116,8 @@ ul {
   font-size: 54px;
   color: #93c5fd;
   text-align: center;
-  margin-top: 0px;
+  margin-top: 15px;
+  margin-bottom: 5px;
   text-shadow: 0 2px 20px rgba(99, 102, 241, 0.2);
 }
 .game-info {
