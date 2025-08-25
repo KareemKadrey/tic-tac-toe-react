@@ -1,3 +1,15 @@
+.draw-color {
+  color: #fbbf24; /* amber-400 */
+  text-shadow: 0 2px 8px rgba(251, 191, 36, 0.3);
+}
+.x-color {
+  color: #f87171; /* red-400 */
+  text-shadow: 0 2px 8px rgba(248, 113, 113, 0.3);
+}
+.o-color {
+  color: #60a5fa; /* blue-400 */
+  text-shadow: 0 2px 8px rgba(96, 165, 250, 0.3);
+}
 * {
   box-sizing: border-box;
 }
@@ -109,7 +121,11 @@ ul {
 }
 
 .highlight {
-  background-color: #065f46 !important;
+  background: linear-gradient(135deg, #05b873 0%, #00ff6e 100%) !important;
+  /* border: 2.5px solid #fffbe6; */
+  box-shadow: 0 0 18px 4px rgba(251, 191, 36, 0.25),
+    0 0 8px 2px rgba(248, 113, 113, 0.18);
+  z-index: 1;
 }
 
 .header {

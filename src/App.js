@@ -199,6 +199,15 @@ function Board({ xIsNext, squares, onPlay, player1, player2 }) {
     );
   }
 
+  let statusClass = "";
+  if (winner) {
+    statusClass = winner.winner === "X" ? "x-color" : "o-color";
+  } else if (status === "Draw") {
+    statusClass = "draw-color";
+  } else {
+    statusClass = xIsNext ? "x-color" : "o-color";
+  }
+
   return (
     <>
       <div className="status">
@@ -207,7 +216,7 @@ function Board({ xIsNext, squares, onPlay, player1, player2 }) {
           : status === "Draw"
           ? "Result is: "
           : "Next player: "}
-        <span className="status-name">{status}</span>
+        <span className={statusClass}>{status}</span>
       </div>
       {boardRows}
     </>
@@ -220,7 +229,11 @@ function Square({ value, onSquareClick, isWinningSquare }) {
       className={`square ${isWinningSquare ? "highlight" : ""}`}
       onClick={onSquareClick}
     >
-      {value}
+      {value === "X" ? (
+        <span className="x-color">X</span>
+      ) : value === "O" ? (
+        <span className="o-color">O</span>
+      ) : null}
     </button>
   );
 }
@@ -269,7 +282,9 @@ function Names({ player1, player2, setPlayer1, setPlayer2 }) {
   return (
     <>
       <div className="pl1">
-        <label htmlFor="in1">Player 1 Name (X)</label>
+        <label htmlFor="in1">
+          <span className="x-color">Player 1 Name (X)</span>
+        </label>
         <input
           id="in1"
           type="text"
@@ -280,7 +295,9 @@ function Names({ player1, player2, setPlayer1, setPlayer2 }) {
       </div>
 
       <div className="pl2">
-        <label htmlFor="in2">Player 2 Name (O)</label>
+        <label htmlFor="in2">
+          <span className="o-color">Player 2 Name (O)</span>
+        </label>
         <input
           id="in2"
           type="text"
