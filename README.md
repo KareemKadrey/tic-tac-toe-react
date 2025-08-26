@@ -11,6 +11,6 @@ A modern, responsive Tic-Tac-Toe game built with React.
 - **Responsive design**: history table appears beside the board on large screens, below on small screens
 - **Beautiful UI** with enhanced buttons and table styling
 
-## Live Server : https://tic-tac-toe-react-indol-chi.vercel.app/
+ Live Server : https://tic-tac-toe-react-indol-chi.vercel.app/
 
 Enjoy playing!
